@@ -13,7 +13,6 @@ test.beforeEach(async ({ page }) => {
 test('signIn button disabled when incorrect data inserted', async ({}) => {
   await authPage.usernameField.fill(faker.lorem.word(2))
   await authPage.passwordField.fill(faker.lorem.word(7))
-  await authPage.signInButton.click()
   await expect(authPage.signInButton).toBeDisabled()
 })
 
@@ -41,9 +40,10 @@ test('login and create order', async ({}) => {
   await orderCreationPage.comment.fill('cake')
   await orderCreationPage.orderButton.click()
   await expect.soft(orderCreationPage.notificationPopUp).toBeVisible()
-  await expect
-    .soft(orderCreationPage.notificationPopUp)
-    .toHaveText('×Order has been created!Tracking code: undefinedok')
+  //await expect
+  //.soft(orderCreationPage.notificationPopUp)
+  //.toHaveText('×Order has been created!Tracking code: undefinedok')
+  await expect.soft(orderCreationPage.notificationPopUp).toHaveText(/Tracking code: \d+/)
 })
 
 test('login and logout', async ({}) => {
