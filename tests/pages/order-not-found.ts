@@ -1,7 +1,7 @@
 import { Locator, Page } from '@playwright/test'
 import { AuthorizedPage } from './authorized-page'
 
-export class OrderNotFound extends AuthorizedPage{
+export class OrderNotFound extends AuthorizedPage {
   readonly orderNotFoundTitle: Locator
   readonly orderNotFoundMessage: Locator
   readonly orderNotFoundImage: Locator

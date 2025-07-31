@@ -54,7 +54,7 @@ test('login and logout', async ({}) => {
   await expect.soft(authPage.signInButton).toBeVisible()
 })
 
-test('Order not found page elements are visible', async ({page}) => {
+test('Order not found page elements are visible', async ({ page }) => {
   const orderCreationPage = await authPage.signIn(USERNAME, PASSWORD)
   await orderCreationPage.buttonStatus.click()
   await orderCreationPage.inputOrderNumber.fill('0000')
@@ -63,7 +63,7 @@ test('Order not found page elements are visible', async ({page}) => {
   await expect.soft(orderNotFoundPage.orderNotFoundTitle).toBeVisible()
 })
 
-test('Order found page elements are visible', async ({page}) => {
+test('Order found page elements are visible', async ({ page }) => {
   const orderCreationPage = await authPage.signIn(USERNAME, PASSWORD)
   await orderCreationPage.buttonStatus.click()
   await orderCreationPage.inputOrderNumber.fill('10571')
