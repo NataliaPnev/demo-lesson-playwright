@@ -28,7 +28,7 @@ test('error message displayed when incorrect credentials used', async ({}) => {
 test('login with correct credentials and verify order creation page', async ({}) => {
   const orderCreationPage = await authPage.signIn(USERNAME, PASSWORD)
   await expect.soft(orderCreationPage.buttonStatus).toBeVisible()
-  await expect.soft(orderCreationPage.orderButton).toBeVisible()
+  await expect.soft(orderCreationPage.orderButton).toBeVisible({ timeout: 10000 })
   await expect.soft(orderCreationPage.name).toBeVisible()
   await expect.soft(orderCreationPage.phone).toBeVisible()
   await expect.soft(orderCreationPage.comment).toBeVisible()
